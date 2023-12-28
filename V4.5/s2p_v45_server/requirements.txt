@@ -1,5 +1,5 @@
-opencv-contrib-python
-tensorflow
-bottle
+opencv-contrib-python==4.8.1.78
+tensorflow==2.15.0.post1
+bottle==0.12.25
 tqdm
 
