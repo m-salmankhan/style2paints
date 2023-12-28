@@ -351,15 +351,15 @@ def cv2_imwrite(a, b):
 def from_png_to_jpg(map):
     if map.shape[2] == 3:
         return map
-    color = map[:, :, 0:3].astype(np.float) / 255.0
-    alpha = map[:, :, 3:4].astype(np.float) / 255.0
+    color = map[:, :, 0:3].astype(float) / 255.0
+    alpha = map[:, :, 3:4].astype(float) / 255.0
     reversed_color = 1 - color
     final_color = (255.0 - reversed_color * alpha * 255.0).clip(0, 255).astype(np.uint8)
     return final_color
 
 
 def s_enhance(x, k=2.0):
-    p = cv2.cvtColor(x, cv2.COLOR_RGB2HSV).astype(np.float)
+    p = cv2.cvtColor(x, cv2.COLOR_RGB2HSV).astype(float)
     p[:, :, 1] *= k
     p = p.clip(0, 255).astype(np.uint8)
     return cv2.cvtColor(p, cv2.COLOR_HSV2RGB).clip(0, 255)
